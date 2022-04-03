@@ -2,11 +2,14 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 func CurrencyCalculator(oneDollar, fiftyCent, twentyCent, tenCent, fiveCent float64) (float64, float64, float64) {
-	//Insert your code here
-
+	var totalAmountInCents = oneDollar*100 + fiftyCent*50 + twentyCent*20 + tenCent*10 + fiveCent*5
+	var totalAmount = totalAmountInCents / 100
+	var twoDollarNotes = math.Round(totalAmount / 2)
+	var changeAmount = totalAmount - twoDollarNotes*2
 	//Do not remove this
 	fmt.Println("Total:", totalAmount, "Two Dollar Notes:", twoDollarNotes, " Change: ", changeAmount)
 	return totalAmount, twoDollarNotes, changeAmount
